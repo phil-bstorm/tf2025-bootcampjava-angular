@@ -1,11 +1,12 @@
 import {CurrencyPipe, SlicePipe} from '@angular/common';
 import {Component, computed, signal} from '@angular/core';
 import {IPagination, MPaginationComponent} from '../../shared/materialize/m-pagination/m-pagination.component';
+import {ProductCreateComponent} from '../product-create/product-create.component';
 
 
 @Component({
   selector: 'product-list',
-  imports: [CurrencyPipe, SlicePipe, MPaginationComponent],
+  imports: [CurrencyPipe, SlicePipe, MPaginationComponent, ProductCreateComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
@@ -185,5 +186,9 @@ export class ProductListComponent {
 
     this.startIndex.set(startIndex)
     this.endIndex.set(endIndex)
+  }
+
+  handleCreate($event: any) {
+    this.produits.update((old) => [...old, $event])
   }
 }

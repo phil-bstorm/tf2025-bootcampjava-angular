@@ -24,3 +24,5 @@
 </table>
 
 <m-pagination [total]="produits().length" (changePage)="handleChangePage($event)" />
+
+<product-create (onCreate)="handleCreate($event)" />

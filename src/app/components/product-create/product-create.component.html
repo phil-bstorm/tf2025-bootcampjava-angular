@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="handleCreation()">
+  <div class="input-group">
+    <span>Titre:</span>
+    <input type="text" name="titre" id="titre" formControlName="titre">
+
+    @if (form.get('titre')?.errors) {
+      {{ form.get('titre')?.errors |json }}
+    }
+  </div>
+  <div class="input-group">
+    <span>Description:</span>
+    <input type="text" name="description" id="description" formControlName="description">
+  </div>
+  <div class="input-group">
+    <span>Prix:</span>
+    <input type="text" formControlName="prix">
+  </div>
+  <div class="input-group">
+    <span>Quantite en stock:</span>
+    <input type="text" name="quantite_en_stock" id="quantite_en_stock" formControlName="quantite_en_stock">
+  </div>
+
+  <button type="submit" class="btn green">Ajouter</button>
+</form>
