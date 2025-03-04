@@ -2,6 +2,7 @@ import {Component, output} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ssin} from '../../utils/custom.validators';
 import {JsonPipe} from '@angular/common';
+import {fProductCreate} from '../../forms/product.form';
 
 @Component({
   selector: 'product-create',
@@ -15,12 +16,7 @@ import {JsonPipe} from '@angular/common';
 export class ProductCreateComponent {
   onCreateEvent = output<any>({alias: 'onCreate'})
 
-  form = new FormGroup({
-    titre: new FormControl<null | string>(null, { validators: [Validators.required] }),
-    description: new FormControl(),
-    prix: new FormControl(0.00, {validators: [Validators.required, Validators.min(0.01)]}),
-    quantite_en_stock: new FormControl(0.00, { validators: [Validators.required, Validators.min(0.01)]})
-  })
+  form = fProductCreate()
 
   handleCreation() {
     const value = this.form.value
