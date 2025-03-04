@@ -1,0 +1,11 @@
+<nav>
+  <ul>
+<!--    Demo 1 -->
+<!--    <li routerLink="/"><a>Home</a></li>-->
+<!--    <li routerLink="/demo"><a>Demo</a></li>-->
+<!--    <li routerLink="/exercice"><a>Exercice</a></li>-->
+    @for (link of links(); track link.label) {
+      <li [routerLink]="link.routerLink">{{ link.label }}</li>
+    }
+  </ul>
+</nav>

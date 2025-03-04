@@ -1,0 +1,26 @@
+<table>
+    <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Description</th>
+          <th>Prix</th>
+          <th>Qtt disponible</th>
+          <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of produits() |slice:startIndex():endIndex(); track item.id) {
+            <tr>
+                <td>{{ item.titre }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.prix |currency:'EUR':'symbol-narrow':'2.2-2'}}</td>
+                <td>{{ item.quantite_en_stock }}</td>
+              <td>
+                <button class="btn" [class.red]="item.quantite_en_stock < 50">Acheter</button>
+              </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<m-pagination [total]="produits().length" (changePage)="handleChangePage($event)" />

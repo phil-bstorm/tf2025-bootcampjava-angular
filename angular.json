@@ -4,6 +4,9 @@
   "newProjectRoot": "projects",
   "projects": {
     "tf2025-bootcamp-java": {
+      "i18n": {
+        "sourceLocale": "fr-BE"
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -32,9 +35,19 @@
               }
             ],
             "styles": [
+              {
+                "bundleName": "materialize-css",
+                "input":  "node_modules/@materializecss/materialize/dist/css/materialize.min.css"
+              },
               "src/styles.scss"
+
             ],
-            "scripts": []
+            "scripts": [
+              {
+                "bundleName": "materialize-js",
+                "input":  "node_modules/@materializecss/materialize/dist/js/materialize.min.js"
+              }
+            ]
           },
           "configurations": {
             "production": {

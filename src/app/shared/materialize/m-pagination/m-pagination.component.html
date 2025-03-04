@@ -1,0 +1,13 @@
+<div class="pagination">
+  <button (click)="handlePageSize(1)">1</button>
+  <button (click)="handlePageSize(5)">5</button>
+  <button (click)="handlePageSize(10)">10</button>
+  <button (click)="handlePageSize(15)">15</button>
+  <ul>
+    <li (click)="handlePreviousPage()"><a>Previous</a></li>
+    @for(page of pages(); track page) {
+      <li (click)="handlePage(page)"><a>{{ page }}</a></li>
+    }
+    <li (click)="handleNextPage()"><a>Next</a></li>
+  </ul>
+</div>

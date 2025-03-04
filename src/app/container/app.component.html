@@ -1,0 +1,9 @@
+<!--<nav>-->
+<!--  <ul>-->
+<!--    <li routerLink="/products"><a>Products</a></li>-->
+<!--  </ul>-->
+<!--</nav>-->
+<nav-bar [links]="[{label: 'Products', routerLink: ['/products']}]" />
+<div class="container">
+  <router-outlet />
+</div>
