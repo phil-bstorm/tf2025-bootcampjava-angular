@@ -1,4 +1,8 @@
 <nav>
+  {{ userConnected() ? "connecté" : "non connecté" }}
+  <button (click)="seConnecter()">
+    Se connecter
+  </button>
   <ul>
 <!--    Demo 1 -->
 <!--    <li routerLink="/"><a>Home</a></li>-->
