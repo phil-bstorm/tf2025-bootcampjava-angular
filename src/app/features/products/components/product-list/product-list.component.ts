@@ -1,8 +1,9 @@
 import {CurrencyPipe, SlicePipe} from '@angular/common';
-import {Component, computed, inject, signal} from '@angular/core';
+import {Component, computed, inject, Signal, signal, WritableSignal} from '@angular/core';
 import {IPagination, MPaginationComponent} from '../../../../shared/materialize/m-pagination/m-pagination.component';
 import {ProductCreateComponent} from '../product-create/product-create.component';
 import {ProductService} from '../../services/product.service';
+import {Product} from '../../models/product.model';
 
 
 @Component({
@@ -12,8 +13,8 @@ import {ProductService} from '../../services/product.service';
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
-  private $product= inject(ProductService);
-  produits = this.$product.produits;
+  private $product: ProductService = inject(ProductService);
+  produits: Signal<Product[]> = this.$product.produits;
 
   startIndex = signal(0)
   endIndex = signal(5)
@@ -28,6 +29,17 @@ export class ProductListComponent {
   }
 
   handleCreate($event: any) {
-    this.$product.ajouterUnProduit($event);
+   // vérification pour vérifier que les propriétés existes
+
+    const p: Product = {
+      description: $event.description,
+      id: $event.id,
+      prix: $event.prix,
+      quantite_en_stock: $event.quantite_en_stock,
+      titre: $event.titre
+    };
+
+    this.$product.ajouterUnProduit(p);
+    // this.$product.ajouterUnProduit($event as Product); cast du type
   }
 }

@@ -1,10 +1,11 @@
-import {Injectable, signal} from '@angular/core';
+import {Injectable, signal, WritableSignal} from '@angular/core';
+import {Product} from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  produits = signal([
+  produits: WritableSignal<Product[]> = signal([
     {
       "id": 1,
       "titre": "T-shirt en coton",
@@ -165,9 +166,9 @@ export class ProductService {
       "description": "Chaussettes hautes en coton.",
       "prix": 9.99,
       "quantite_en_stock": 60
-    }])
+    }]);
 
-  ajouterUnProduit(nouveauProduit: any){
+  ajouterUnProduit(nouveauProduit: Product){
     this.produits.update((old) => [...old, nouveauProduit])
   }
 }
