@@ -1,10 +1,14 @@
 import { Routes } from '@angular/router';
-import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductListComponent } from './features/products/components/product-list/product-list.component';
 
 export const routes: Routes = [
+  // {
+  //   path: "products",
+  //   loadComponent: () => import("./features/products/components/product-list/product-list.component").then(c => c.ProductListComponent)
+  // },
   {
     path: 'products',
-    loadComponent: () => import("./components/product-list/product-list.component").then(c => c.ProductListComponent)
+    loadChildren: () => import("./features/products/product.routes").then(r => r.routes)
   },
   // {
   //   path: '',

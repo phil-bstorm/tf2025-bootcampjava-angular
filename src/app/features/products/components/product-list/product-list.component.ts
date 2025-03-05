@@ -1,6 +1,6 @@
 import {CurrencyPipe, SlicePipe} from '@angular/common';
 import {Component, computed, signal} from '@angular/core';
-import {IPagination, MPaginationComponent} from '../../shared/materialize/m-pagination/m-pagination.component';
+import {IPagination, MPaginationComponent} from '../../../../shared/materialize/m-pagination/m-pagination.component';
 import {ProductCreateComponent} from '../product-create/product-create.component';
 
 

@@ -1,6 +1,6 @@
 import {Component, output} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {ssin} from '../../utils/custom.validators';
+import {ssin} from '../../../../utils/custom.validators';
 import {JsonPipe} from '@angular/common';
 import {fProductCreate} from '../../forms/product.form';
 
