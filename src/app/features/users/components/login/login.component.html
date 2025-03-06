@@ -1,1 +1,36 @@
-<p>login works!</p>
+<h2>Page de login</h2>
+<form [formGroup]="form" (ngSubmit)="handleLoginSubmit()">
+  <div class="input-group"
+       [ngClass]="{
+       error:  (form.get('username')?.touched || form.get('username')?.dirty)
+                && form.get('username')?.errors
+       }">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" formControlName="username">
+    @if(
+      (form.get('username')?.touched || form.get('username')?.dirty)
+      && form.get('username')?.errors
+    ) {
+      <span>Ce champ est requis avec au moins 3 caractères</span>
+<!--      <span>{{ form.get('username')?.errors |json }}</span>-->
+    }
+  </div>
+
+  <div class="input-group"
+       [ngClass]="{
+       error:  (form.get('password')?.touched || form.get('password')?.dirty)
+                && form.get('password')?.errors
+       }">
+    <label for="password">Password:</label>
+    <input type="text" id="password" name="password" formControlName="password">
+    @if(
+      (form.get('password')?.touched || form.get('password')?.dirty)
+      && form.get('password')?.errors
+      ) {
+      <span>Ce champ est requis avec au moins 5 caractères</span>
+      <!--      <span>{{ form.get('password')?.errors |json }}</span>-->
+    }
+  </div>
+
+  <button [disabled]="!form.valid">Submit</button>
+</form>

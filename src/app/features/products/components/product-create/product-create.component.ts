@@ -2,7 +2,7 @@ import {Component, output} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ssin} from '../../../../utils/custom.validators';
 import {JsonPipe} from '@angular/common';
-import {fProductCreate} from '../../forms/product.form';
+import {fProduct} from '../../forms/product.form';
 
 @Component({
   selector: 'product-create',
@@ -16,7 +16,7 @@ import {fProductCreate} from '../../forms/product.form';
 export class ProductCreateComponent {
   onCreateEvent = output<any>({alias: 'onCreate'})
 
-  form = fProductCreate()
+  form = fProduct()
 
   handleCreation() {
     const value = this.form.value
