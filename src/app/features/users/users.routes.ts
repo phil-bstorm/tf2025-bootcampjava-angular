@@ -1,9 +1,11 @@
 import {Routes} from '@angular/router';
+import {connectedGuard} from './guards/connected.guard';
 
 export const routes: Routes = [
   {
     path: "",
     loadComponent: () => import("./container/users.component").then(c => c.UsersComponent),
+    canActivate: [connectedGuard],
     children: [
       {
         path: "list",
@@ -14,5 +16,5 @@ export const routes: Routes = [
         loadComponent: () => import("./components/details/details.component").then(c => c.DetailsComponent)
       }
     ]
-  }
+  },
 ];

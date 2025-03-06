@@ -1,0 +1,4 @@
+{{ userConnected() ? " je suis connecté" : "je ne suis pas connecté" }}
+<button (click)="seConnecter()">
+  {{ userConnected() ? "se déconnecter" : "se connecter" }}
+</button>

@@ -13,7 +13,7 @@ export const routes: Routes = [
   {
     path: 'users',
     loadChildren: () => import("./features/users/users.routes").then(r => r.routes)
-  }
+  },
   // {
   //   path: '',
   //   loadComponent: () => import("./components/home/home.component").then(c => c.HomeComponent)
