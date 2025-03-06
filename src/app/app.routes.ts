@@ -10,6 +10,10 @@ export const routes: Routes = [
     path: 'products',
     loadChildren: () => import("./features/products/product.routes").then(r => r.routes)
   },
+  {
+    path: 'users',
+    loadChildren: () => import("./features/users/users.routes").then(r => r.routes)
+  }
   // {
   //   path: '',
   //   loadComponent: () => import("./components/home/home.component").then(c => c.HomeComponent)
