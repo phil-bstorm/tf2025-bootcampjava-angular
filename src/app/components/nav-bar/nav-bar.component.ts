@@ -1,11 +1,6 @@
-import {Component, input} from '@angular/core';
+import {Component, inject, input, Signal} from '@angular/core';
 import {RouterLink} from '@angular/router';
-
-export interface INavLink {
-  label: string,
-  routerLink?: string | Array<any>
-  children?: INavLink[]
-}
+import {AuthService} from '../../features/auth/services/auth.service';
 
 @Component({
   selector: 'nav-bar',
@@ -16,5 +11,7 @@ export interface INavLink {
   styleUrl: './nav-bar.component.scss'
 })
 export class NavBarComponent {
-  links = input.required<INavLink[]>()
+  private $auth: AuthService = inject(AuthService);
+
+  userConnected: Signal<boolean> = this.$auth.isConnected;
 }

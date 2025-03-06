@@ -1,11 +1,12 @@
 import { Routes } from '@angular/router';
-import { ProductListComponent } from './features/products/components/product-list/product-list.component';
+import {HomeComponent} from './components/home/home.component';
 
 export const routes: Routes = [
-  // {
-  //   path: "products",
-  //   loadComponent: () => import("./features/products/components/product-list/product-list.component").then(c => c.ProductListComponent)
-  // },
+  {
+    path: "",
+    // loadComponent: () => import("./components/home/home.component").then(c => c.HomeComponent)
+    component: HomeComponent
+  },
   {
     path: 'products',
     loadChildren: () => import("./features/products/product.routes").then(r => r.routes)
@@ -14,16 +15,13 @@ export const routes: Routes = [
     path: 'users',
     loadChildren: () => import("./features/users/users.routes").then(r => r.routes)
   },
-  // {
-  //   path: '',
-  //   loadComponent: () => import("./components/home/home.component").then(c => c.HomeComponent)
-  // },
-  // {
-  //   path: 'demo',
-  //   loadComponent: () => import("./components/demo/demo.component").then(c => c.DemoComponent)
-  // },
-  // {
-  //   path: 'exercice',
-  //   loadComponent: () => import("./components/exercice/exercice.component").then(c => c.ExerciceComponent)
-  // }
+  {
+    path: 'errors',
+    loadChildren: () => import("./features/errors/error.routes").then(r => r.routes)
+  },
+  {
+    path: "**",
+    redirectTo: "/errors/404",
+    pathMatch: "full"
+  }
 ];

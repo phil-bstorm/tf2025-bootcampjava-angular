@@ -1,9 +1,21 @@
 <nav>
   <ul>
-    @for (link of links(); track link.label) {
+    <li>
+      <a routerLink="/products">
+        Products
+      </a>
+    </li>
+    @if (userConnected()) {
       <li>
-        <a [routerLink]="link.routerLink">
-          {{ link.label }}
+        <a routerLink="/users">
+          Users
+        </a>
+      </li>
+    }
+    @if (!userConnected()) {
+      <li>
+        <a routerLink="/users/login">
+          Login
         </a>
       </li>
     }

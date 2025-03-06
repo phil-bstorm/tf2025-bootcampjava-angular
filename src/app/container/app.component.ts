@@ -1,11 +1,11 @@
-import { Component, signal } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import {NavBarComponent} from '../components/nav-bar/nav-bar.component';
+import {Component, signal} from '@angular/core';
+import {RouterLink, RouterOutlet} from '@angular/router';
+import { NavBarComponent} from '../components/nav-bar/nav-bar.component';
 import {ConnectionStateComponent} from '../components/connection-state/connection-state.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, NavBarComponent, ConnectionStateComponent],
+  imports: [RouterOutlet, NavBarComponent, ConnectionStateComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

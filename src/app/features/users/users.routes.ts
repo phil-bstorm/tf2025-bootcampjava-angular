@@ -3,6 +3,10 @@ import {connectedGuard} from './guards/connected.guard';
 
 export const routes: Routes = [
   {
+    path: "login",
+    loadComponent: () => import("./components/login/login.component").then(c => c.LoginComponent)
+  },
+  {
     path: "",
     loadComponent: () => import("./container/users.component").then(c => c.UsersComponent),
     canActivate: [connectedGuard],
@@ -14,6 +18,10 @@ export const routes: Routes = [
       {
         path: "details",
         loadComponent: () => import("./components/details/details.component").then(c => c.DetailsComponent)
+      },
+      {
+        path: "**",
+        redirectTo: "list"
       }
     ]
   },
